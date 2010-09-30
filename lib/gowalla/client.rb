@@ -1,19 +1,19 @@
 require 'forwardable'
+require 'gowalla/generic_request'
+require 'gowalla/post_methods'
 
 module Gowalla
   class Client
     extend Forwardable
-
-    include Spots
-    include Users
-    include Items
-    include Trips
-    include Checkins
-    include Flags
+    include PostMethods
 
     attr_reader :username, :api_key, :api_secret
 
     def_delegators :oauth_client, :web_server, :authorize_url, :access_token_url
+
+    def method_missing(symbol, *arguments)
+      GenericRequest.new(symbol, arguments, connection).execute
+    end
 
     def initialize(options={})
       @api_key = options[:api_key] || Gowalla.api_key
@@ -69,16 +69,6 @@ module Gowalla
     end
 
     private
-
-      # @private
-      def format_geo_options(options={})
-        options[:lat] = "+#{options[:lat]}" if options[:lat].to_i > 0
-        options[:lng] = "+#{options[:lng]}" if options[:lng].to_i > 0
-        if options[:sw] && options[:ne]
-          options[:order] ||= "checkins_count desc"
-        end
-        options
-      end
 
       # @private
       def default_headers

@@ -1,12 +1,9 @@
-require 'hashie'
 require 'faraday'
-require 'multi_json'
-require 'oauth2'
 require 'faraday_middleware'
+require 'oauth2'
+require 'active_support/inflector'
 
-directory = File.expand_path(File.dirname(__FILE__))
-
-Hash.send :include, Hashie::HashExtensions
+require 'gowalla/client'
 
 module Gowalla
 
@@ -37,13 +34,5 @@ module Gowalla
       !!self.test_mode
     end
   end
-
-  autoload :Client, 'gowalla/client'
-  autoload :Spots, 'gowalla/spots'
-  autoload :Items, 'gowalla/items'
-  autoload :Users, 'gowalla/users'
-  autoload :Trips, 'gowalla/trips'
-  autoload :Checkins, 'gowalla/checkins'
-  autoload :Flags, 'gowalla/flags'
 
 end

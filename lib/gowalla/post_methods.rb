@@ -1,12 +1,17 @@
 module Gowalla
-  module Checkins
+  module PostMethods
 
-    # Fetch info for a checkin
+    # Create a flag on a particular spot (Reports a problem to Gowalla)
+    # WARNING: This method uses calls not officially supported by Gowalla.
     #
-    # @param [Integer] id Checkin ID
-    # @return [Hashie::Mash] checkin info
-    def checkin_info(id)
-      connection.get("/checkins/#{id}").body
+    # @param [String] flag_type Type of flag to create: invalid,duplicate,mislocated,venue_closed,inaccurate_information
+    # @param [String] description Description of the problem
+    def create_spot_flag(spot_id, flag_type, description)
+      response = connection.post do |req|
+        req.url "/spots/#{spot_id}/flags/#{flag_type}"
+        req.body = {:description => description}
+      end
+      response.body
     end
 
     # Check in at a spot
@@ -17,7 +22,7 @@ module Gowalla
     # @option details [String] :comment Checkin comment
     # @option details [Boolean] :post_to_twitter Post Checkin to Twitter
     # @option details [Boolean] :post_to_facebook Post Checkin to Facebook
-    def checkin(details={})
+    def create_checkin(details={})
       checkin_path = "/checkins"
       checkin_path += "/test" if Gowalla.test_mode?
       response = connection.post do |req|
@@ -26,6 +31,7 @@ module Gowalla
       end
       response.body
     end
+
 
   end
 end

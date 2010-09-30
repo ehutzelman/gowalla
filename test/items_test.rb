@@ -15,12 +15,12 @@ class ItemsTest < Test::Unit::TestCase
       item.determiner.should == 'some'
     end
 
-    should "retrieve events associated with a specific item" do
-      stub_get('http://pengwynn:0U812@api.gowalla.com/items/607583/events', 'item_events.json')
-      events = @client.item_events(607583)
-      events.first.spot.name = 'Jerusalem Bakery'
-      events.first.user.first_name = 'Scott'
-    end
+    # should "retrieve events associated with a specific item" do
+    #   stub_get('http://pengwynn:0U812@api.gowalla.com/items/607583/events', 'item_events.json')
+    #   events = @client.item_events(607583)
+    #   events.first.spot.name = 'Jerusalem Bakery'
+    #   events.first.user.first_name = 'Scott'
+    # end
   end
 
 end

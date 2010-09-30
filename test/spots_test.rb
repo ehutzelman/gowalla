@@ -8,15 +8,15 @@ class SpotsTest < Test::Unit::TestCase
     end
 
     should "Retrieve a list of spots within a specified distance of a location" do
-      stub_get("http://pengwynn:0U812@api.gowalla.com/spots?lat=%2B33.237593417&lng=-96.960559033&radius=50", "spots.json")
-      spots = @client.list_spots(:lat => 33.237593417, :lng => -96.960559033, :radius => 50)
+      stub_get("http://pengwynn:0U812@api.gowalla.com/spots?lat=33.237593417&lng=-96.960559033&radius=50", "spots.json")
+      spots = @client.spots(:lat => 33.237593417, :lng => -96.960559033, :radius => 50)
       spots.first.name.should == 'Gnomb Bar'
       spots.first.radius_meters.should == 50
     end
 
     should "Retrieve a list of spots within a specified bounds" do
       stub_get("http://pengwynn:0U812@api.gowalla.com/spots?sw=%2839.25565142103586%2C%20-8.717308044433594%29&nw=%2839.31411296530539%2C%20-8.490715026855469%29", "spots.json")
-      spots = @client.list_spots(:sw => "(39.25565142103586, -8.717308044433594)", :nw => "(39.31411296530539, -8.490715026855469)")
+      spots = @client.spots(:sw => "(39.25565142103586, -8.717308044433594)", :nw => "(39.31411296530539, -8.490715026855469)")
       spots.first.name.should == 'Gnomb Bar'
     end
 

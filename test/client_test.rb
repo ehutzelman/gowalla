@@ -2,14 +2,6 @@ require 'helper'
 
 class ClientTest < Test::Unit::TestCase
 
-  context "When using the Gowalla API" do
-    setup do
-      @client = gowalla_test_client
-    end
-
-
-  end
-
   context "when using basic auth" do
     should "configure api_key, username, and password for easy access" do
 

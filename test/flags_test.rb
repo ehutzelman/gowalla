@@ -9,7 +9,7 @@ class FlagsTest < Test::Unit::TestCase
 
     should "retrieve a list of flags" do
       stub_get("http://pengwynn:0U812@api.gowalla.com/flags", "flags.json")
-      flags = @client.list_flags
+      flags = @client.flags
       flags.first.spot.name.should == 'Wild Gowallaby #1'
       flags.first.user.url.should == '/users/340897'
       flags.first[:type].should == 'invalid'
@@ -38,7 +38,7 @@ class FlagsTest < Test::Unit::TestCase
     should "set a flag on a specific spot" do
       url = "http://pengwynn:0U812@api.gowalla.com/spots/1/flags/invalid"
       FakeWeb.register_uri(:post, url, :body => '{"result": "flag created"}')
-      response = @client.flag_spot(1, 'invalid', 'my problem description')
+      response = @client.create_spot_flag(1, 'invalid', 'my problem description')
       response.result.should == 'flag created'
     end
 

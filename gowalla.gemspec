@@ -12,11 +12,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'oauth2'
   s.add_dependency 'faraday', '~> 0.4.5'
-  s.add_dependency 'hashie', '~> 0.2.0'
-  s.add_dependency 'multi_json', '~> 0.0.4'
-  s.add_dependency 'faraday-middleware'
+  s.add_dependency 'faraday_middleware', '~> 0.0.5'
+  s.add_dependency 'activesupport', '~> 3.0.0'
 
-  s.add_development_dependency 'shoulda', '~> 2.10.0'
+  s.add_development_dependency 'shoulda', '~> 2.11.3'
   s.add_development_dependency 'jnunemaker-matchy', '~> 0.4.0'
   s.add_development_dependency 'fakeweb'
   s.add_development_dependency "bundler", ">= 1.0.0"
