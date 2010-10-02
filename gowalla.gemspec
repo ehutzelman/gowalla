@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'oauth2'
   s.add_dependency 'faraday', '~> 0.4.5'
   s.add_dependency 'faraday_middleware', '~> 0.0.5'
-  s.add_dependency 'activesupport', '~> 3.0.0'
 
   s.add_development_dependency 'shoulda', '~> 2.11.3'
   s.add_development_dependency 'jnunemaker-matchy', '~> 0.4.0'

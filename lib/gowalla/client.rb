@@ -1,6 +1,7 @@
 require 'forwardable'
 require 'gowalla/generic_request'
 require 'gowalla/post_methods'
+require 'gowalla/pluralizer'
 
 module Gowalla
   class Client

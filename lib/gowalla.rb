@@ -1,7 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'oauth2'
-require 'active_support/inflector'
 
 require 'gowalla/client'
 
