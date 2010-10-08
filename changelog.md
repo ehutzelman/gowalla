@@ -1,5 +1,11 @@
 # Changelog
-## 0.4.0 August 9, 2010
+## 0.4.2 October 2, 2010
+  * Patch from [sferik](http://github.com/sferik) for faraday_middleware
+## 0.4.1 September 28, 2010
+  * faraday_middleware gem updated
+  * remove reference to hashie and multi_json gems
+## 0.4.0 September 28, 2010
+  * faraday_middleware gem renamed
   * refactor api methods into individual container classes
   * Additional user method support (visited spots, pins)
   * Problem reporting via flags

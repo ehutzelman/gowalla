@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.description = %q{Ruby wrapper for the Gowalla API}
   s.homepage = %q{http://wynnnetherland.com/projects/gowalla/}
 
-  s.add_dependency 'oauth2'
-  s.add_dependency 'faraday', '~> 0.4.5'
-  s.add_dependency 'faraday_middleware', '~> 0.0.5'
+  s.add_dependency "oauth2"
+  s.add_dependency "faraday", "~> 0.4.5"
+  s.add_dependency "faraday_middleware", "~> 0.1.0"
 
-  s.add_development_dependency 'shoulda', '~> 2.11.3'
-  s.add_development_dependency 'jnunemaker-matchy', '~> 0.4.0'
-  s.add_development_dependency 'fakeweb'
+  s.add_development_dependency "shoulda", "~> 2.10.0"
+  s.add_development_dependency "jnunemaker-matchy", "~> 0.4.0"
+  s.add_development_dependency "fakeweb"
   s.add_development_dependency "bundler", ">= 1.0.0"
 
   s.required_rubygems_version = ">= 1.3.6"

@@ -1,7 +1,6 @@
 require 'faraday'
-require 'faraday_middleware'
 require 'oauth2'
-
+require 'faraday_middleware'
 require 'gowalla/client'
 
 module Gowalla
